@@ -14,8 +14,10 @@ namespace WindowsFormsApplication1
     {
         ServiceReference1.WebService1SoapClient ws = new ServiceReference1.WebService1SoapClient();
         string ci;
-        public Form3(string ci)
+        DataGridView dataGridView;
+        public Form3(DataGridView dataGridView, string ci)
         {
+            this.dataGridView = dataGridView;
             this.ci = ci;
             InitializeComponent();
         }
@@ -33,18 +35,27 @@ namespace WindowsFormsApplication1
         private void button1_Click(object sender, EventArgs e)
         {
             ws.update(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, Convert.ToInt32(textBox6.Text));
+            this.dataGridView.DataSource = ws.listPersona().Tables["persona"];
+            this.dataGridView.Refresh();
             this.Close();
         }
 
         private void Form3_Load(object sender, EventArgs e)
         {
-            textBox1.Text = ci;
-            string[] data = ws.getPersona(ci).Split(':');
-            textBox2.Text = data[0];
-            textBox3.Text = data[1];
-            textBox4.Text = data[2];
-            textBox5.Text = data[3];
-            textBox6.Text = data[4];
+            string req = ws.getPersona(ci);
+            if(req.Length == 0)
+            {
+                MessageBox.Show("No se ha encontrado registro con CI:" + ci, "Aviso");
+                this.Close();
+            } else {
+                textBox1.Text = ci;
+                string[] data = req.Split(':');
+                textBox2.Text = data[0];
+                textBox3.Text = data[1];
+                textBox4.Text = data[2];
+                textBox5.Text = data[3];
+                textBox6.Text = data[4];
+            }            
         }
     }
 }

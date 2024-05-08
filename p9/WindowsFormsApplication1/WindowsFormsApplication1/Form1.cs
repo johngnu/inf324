@@ -27,7 +27,7 @@ namespace WindowsFormsApplication1
             } 
             else
             {
-                Form3 f3 = new Form3(textBox1.Text);
+                Form3 f3 = new Form3(this.dataGridView1, textBox1.Text);
                 f3.ShowDialog();
             }
         }
