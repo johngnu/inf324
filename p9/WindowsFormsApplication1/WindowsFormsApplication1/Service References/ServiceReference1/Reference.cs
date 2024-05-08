@@ -25,17 +25,17 @@ namespace WindowsFormsApplication1.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/persist", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void persist(string ci, string nombres, string paterno, string materno, string direccion, int celular);
+        void persist(string ci, string nombres, string paterno, string materno, string direccion, int celular, string departamento);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/persist", ReplyAction="*")]
-        System.Threading.Tasks.Task persistAsync(string ci, string nombres, string paterno, string materno, string direccion, int celular);
+        System.Threading.Tasks.Task persistAsync(string ci, string nombres, string paterno, string materno, string direccion, int celular, string departamento);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/update", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void update(string ci, string nombres, string paterno, string materno, string direccion, int celular);
+        void update(string ci, string nombres, string paterno, string materno, string direccion, int celular, string departamento);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/update", ReplyAction="*")]
-        System.Threading.Tasks.Task updateAsync(string ci, string nombres, string paterno, string materno, string direccion, int celular);
+        System.Threading.Tasks.Task updateAsync(string ci, string nombres, string paterno, string materno, string direccion, int celular, string departamento);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/delete", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -87,20 +87,20 @@ namespace WindowsFormsApplication1.ServiceReference1 {
             return base.Channel.listPersonaAsync();
         }
         
-        public void persist(string ci, string nombres, string paterno, string materno, string direccion, int celular) {
-            base.Channel.persist(ci, nombres, paterno, materno, direccion, celular);
+        public void persist(string ci, string nombres, string paterno, string materno, string direccion, int celular, string departamento) {
+            base.Channel.persist(ci, nombres, paterno, materno, direccion, celular, departamento);
         }
         
-        public System.Threading.Tasks.Task persistAsync(string ci, string nombres, string paterno, string materno, string direccion, int celular) {
-            return base.Channel.persistAsync(ci, nombres, paterno, materno, direccion, celular);
+        public System.Threading.Tasks.Task persistAsync(string ci, string nombres, string paterno, string materno, string direccion, int celular, string departamento) {
+            return base.Channel.persistAsync(ci, nombres, paterno, materno, direccion, celular, departamento);
         }
         
-        public void update(string ci, string nombres, string paterno, string materno, string direccion, int celular) {
-            base.Channel.update(ci, nombres, paterno, materno, direccion, celular);
+        public void update(string ci, string nombres, string paterno, string materno, string direccion, int celular, string departamento) {
+            base.Channel.update(ci, nombres, paterno, materno, direccion, celular, departamento);
         }
         
-        public System.Threading.Tasks.Task updateAsync(string ci, string nombres, string paterno, string materno, string direccion, int celular) {
-            return base.Channel.updateAsync(ci, nombres, paterno, materno, direccion, celular);
+        public System.Threading.Tasks.Task updateAsync(string ci, string nombres, string paterno, string materno, string direccion, int celular, string departamento) {
+            return base.Channel.updateAsync(ci, nombres, paterno, materno, direccion, celular, departamento);
         }
         
         public void delete(string ci) {

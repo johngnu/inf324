@@ -28,6 +28,7 @@
             <s:element minOccurs="0" maxOccurs="1" name="materno" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="direccion" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="celular" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="departamento" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -43,6 +44,7 @@
             <s:element minOccurs="0" maxOccurs="1" name="materno" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="direccion" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="celular" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="departamento" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>

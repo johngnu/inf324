@@ -32,7 +32,7 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ws.persist(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, Convert.ToInt32(textBox6.Text));
+            ws.persist(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, Convert.ToInt32(textBox6.Text), textBox7.Text);
             this.dataGridView.DataSource = ws.listPersona().Tables["persona"];
             this.dataGridView.Refresh();
             this.Close();

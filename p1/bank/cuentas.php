@@ -35,7 +35,7 @@
             <tbody>
             <?php            
             $resultado = mysqli_query($con, "select *, (select descripcion from tipo_cuenta where 
-            id=tipo_cuenta) tipo, 0 saldo from cuenta where ci='$ci'"); 
+            id=tipo_cuenta) tipo, 0 saldo from cuenta where estado='A' and ci='$ci'"); 
             while($fila = mysqli_fetch_array($resultado)) { 
                 echo '<tr>'; 
                 echo '<td>'.$fila["nro"].'</td>'; 
@@ -49,7 +49,7 @@
                         <img src="img/b_insrow.png" title="Transacciones" alt="Transacciones"> Transac...
                     </a>
                         
-                    <a class="fcc-btn" href="#">
+                    <a class="fcc-btn" href="desactivar.php?ci=<?php echo $fila["ci"]; ?>&nro=<?php echo $fila["nro"]; ?>">
                         <img src="img/b_drop.png" title="Borrar" alt="Borrar"> Borrar
                     </a>                                      
                 </td>    

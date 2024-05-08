@@ -34,12 +34,12 @@ namespace WebApplication1
         }
 
         [WebMethod]
-        public void persist(string ci, string nombres, string paterno, string materno, string direccion, int celular)
+        public void persist(string ci, string nombres, string paterno, string materno, string direccion, int celular, string departamento)
         {
             SqlConnection con = new SqlConnection();
             con.ConnectionString = "server=(local);user=sa;pwd=123;database=BDJohn";
             con.Open();
-            string insert_query = "insert into persona(ci,nombres,paterno,materno,direccion,celular) values (@ci ,@nombres ,@paterno ,@materno, @direccion, @celular)";
+            string insert_query = "insert into persona(ci,nombres,paterno,materno,direccion,celular,departamento) values (@ci ,@nombres ,@paterno ,@materno, @direccion, @celular, @departamento)";
             SqlCommand cmd = new SqlCommand(insert_query, con);
             cmd.Parameters.AddWithValue("@ci", ci);
             cmd.Parameters.AddWithValue("@nombres", nombres);
@@ -47,17 +47,18 @@ namespace WebApplication1
             cmd.Parameters.AddWithValue("@materno", materno);
             cmd.Parameters.AddWithValue("@direccion", direccion);
             cmd.Parameters.AddWithValue("@celular", celular);
+            cmd.Parameters.AddWithValue("@departamento", departamento);
             cmd.ExecuteNonQuery();
             con.Close();
         }
 
         [WebMethod]
-        public void update(string ci, string nombres, string paterno, string materno, string direccion, int celular)
+        public void update(string ci, string nombres, string paterno, string materno, string direccion, int celular, string departamento)
         {
             SqlConnection con = new SqlConnection();
             con.ConnectionString = "server=(local);user=sa;pwd=123;database=BDJohn";
             con.Open();
-            string insert_query = "update persona set nombres=@nombres,paterno=@paterno,materno=@materno,direccion=@direccion,celular=@celular where ci=@ci";
+            string insert_query = "update persona set nombres=@nombres,paterno=@paterno,materno=@materno,direccion=@direccion,celular=@celular,departamento=@departamento where ci=@ci";
             SqlCommand cmd = new SqlCommand(insert_query, con);
             cmd.Parameters.AddWithValue("@ci", ci);
             cmd.Parameters.AddWithValue("@nombres", nombres);
@@ -65,6 +66,7 @@ namespace WebApplication1
             cmd.Parameters.AddWithValue("@materno", materno);
             cmd.Parameters.AddWithValue("@direccion", direccion);
             cmd.Parameters.AddWithValue("@celular", celular);
+            cmd.Parameters.AddWithValue("@departamento", departamento);
             cmd.ExecuteNonQuery();
             con.Close();
         }
@@ -98,7 +100,7 @@ namespace WebApplication1
             {
                 if (reader.Read())
                 {
-                    outtext = reader["nombres"] + ":" + reader["paterno"] + ":" + reader["materno"] + ":" + reader["direccion"] + ":" + reader["celular"];
+                    outtext = reader["nombres"] + ":" + reader["paterno"] + ":" + reader["materno"] + ":" + reader["direccion"] + ":" + reader["celular"] + ":" + reader["departamento"];
                 }
             }
 

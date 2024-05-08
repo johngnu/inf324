@@ -34,7 +34,7 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ws.update(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, Convert.ToInt32(textBox6.Text));
+            ws.update(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, Convert.ToInt32(textBox6.Text), textBox7.Text);
             this.dataGridView.DataSource = ws.listPersona().Tables["persona"];
             this.dataGridView.Refresh();
             this.Close();
@@ -55,6 +55,7 @@ namespace WindowsFormsApplication1
                 textBox4.Text = data[2];
                 textBox5.Text = data[3];
                 textBox6.Text = data[4];
+                textBox7.Text = data[5];
             }            
         }
     }

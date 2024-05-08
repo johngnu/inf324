@@ -17,6 +17,8 @@
         <input class="form-field" type="text" id="paterno" name="paterno" required>
         <label for="materno">Apellido materno:</label>
         <input class="form-field" type="text" id="materno" name="materno" required>
+        <label for="departamento">Departamento:</label>
+        <input class="form-field" type="text" id="departamento" name="departamento" required>
 
         <label for="celular">Celular:</label>
         <input class="form-field" type="number" id="celular" name="celular" required>
